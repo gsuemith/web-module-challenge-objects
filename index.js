@@ -15,8 +15,15 @@ The function should:
   Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
 */
 
-function createMenuItem(/*Your code here*/){
+function createMenuItems(name, price, category){
     /*Your code here*/
+    const menuItem = {
+      name: name,
+      price: price,
+      category: category,
+    };
+
+    return menuItem;
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -29,7 +36,13 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
 
+const hotDog = createMenuItems("Hot Dog", 8, "Snack");
+const nachos = createMenuItems("Nachos", 9, "Appetizer");
+const friedChicken = createMenuItems("Fried Chicken", 12, "Dinner");
 
+console.log(hotDog);
+console.log(nachos);
+console.log(friedChicken);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to the 
@@ -49,6 +62,13 @@ export const burger = {
   price: 18, 
   category: "Lunch", 
   /*Your code here*/
+  discount: function (customer) {
+    priceRatio = .9
+    if (customer == 'student' || customer == 'teacher')
+      priceRatio = .75
+
+    return priceRatio * this.price;
+  }
 }
 
 
@@ -69,7 +89,8 @@ const reviews = [
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
-
+let julius = reviews.find(review => review.name === 'Julius')
+console.log(julius.feedback)
 
 
 
@@ -78,7 +99,14 @@ Using the reviews array above do the following: (no function needed)
   1. Following the same format (name, rating, feedback), add a new fictitious review object to the reviews array
   2. log the whole array to the console, make sure the new review is inside of it   
 */
+let newReview = {
+  name: "Garrick",
+  rating: 3.5,
+  feedback: "Food was cheap but nothing to write home about"
+};
 
+reviews.push(newReview);
+console.log(reviews);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -87,8 +115,10 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   2. log the reviews array to the console to check your work
 */
 
+let reyna = reviews.find(review => review.name === 'Reyna');
+reyna.feedback = "this place is chill with really cool people, great for getting work done on weekdays";
 
-
+console.log(reviews)
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -102,8 +132,11 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
+function getReviewByIndex(reviews, index) {
   /*Your code here*/
+  reviewer = reviews[index];
+  
+  return `${reviewer.name} gave the restaurant a ${reviewer.rating} star review, and their feedback was: ${reviewer.feedback}`;
 }
 
 
@@ -121,9 +154,12 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
+function getLastReview(reviews) {
   /*Your code here*/
+  return getReviewByIndex(reviews, reviews.length - 1);
 } 
+
+console.log(getLastReview(reviews));
 
 
 
