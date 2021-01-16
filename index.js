@@ -179,8 +179,9 @@ Use the getReviewsByRating function below to do the following:
   ]
 */
 
- function getReviewByRating(/* code here */) {
+ function getReviewByRating(reviews, rating) {
     /* code here */
+    return reviews.filter(review => Math.floor(review.rating) === rating)
   }
 
   
@@ -197,8 +198,9 @@ Use the getLongReviews function below to do the following:
   ]
 */
 
-function getLongReviews(/* code here */) {
+function getLongReviews(reviews) {
     /* code here */
+    return reviews.filter(review => review.feedback.split(" ").length > 15)
   }
   
 
@@ -220,9 +222,17 @@ Use the carMaker function below to do the following:
 */
 
 
-function carMaker(/* code here */) {
+function carMaker(odometer) {
     /* code here */
+    let car = {
+      odometer: odometer,
+      drive: function (distance) {
+        this.odometer += distance;
+        return this.odometer;
+      }
+    }
     
+    return car;
 }
 
 
