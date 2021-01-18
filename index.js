@@ -15,7 +15,7 @@ The function should:
   Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
 */
 
-function createMenuItems(name, price, category){
+function createMenuItem(name, price, category){
     /*Your code here*/
     const menuItem = {
       name: name,
@@ -36,9 +36,9 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
 
-const hotDog = createMenuItems("Hot Dog", 8, "Snack");
-const nachos = createMenuItems("Nachos", 9, "Appetizer");
-const friedChicken = createMenuItems("Fried Chicken", 12, "Dinner");
+const hotDog = createMenuItem("Hot Dog", 8, "Snack");
+const nachos = createMenuItem("Nachos", 9, "Appetizer");
+const friedChicken = createMenuItem("Fried Chicken", 12, "Dinner");
 
 console.log(hotDog);
 console.log(nachos);
@@ -63,7 +63,7 @@ export const burger = {
   category: "Lunch", 
   /*Your code here*/
   discount: function (customer) {
-    priceRatio = .9
+    let priceRatio = .9
     if (customer == 'student' || customer == 'teacher')
       priceRatio = .75
 
@@ -134,7 +134,7 @@ Use the getReviewByIndex function below to do the following:
 
 function getReviewByIndex(reviews, index) {
   /*Your code here*/
-  reviewer = reviews[index];
+  const reviewer = reviews[index];
   
   return `${reviewer.name} gave the restaurant a ${reviewer.rating} star review, and their feedback was: ${reviewer.feedback}`;
 }
@@ -159,7 +159,7 @@ function getLastReview(reviews) {
   return getReviewByIndex(reviews, reviews.length - 1);
 } 
 
-console.log(getLastReview(reviews));
+getLastReview(reviews);
 
 
 
@@ -244,7 +244,7 @@ function foo(){
 
 export default{
   foo,
-  createMenuItem,
+  createMenuItem, /*asks for createMenuItems (plural) in instructions*/
   getReviewByIndex,
   getLastReview,
 }
